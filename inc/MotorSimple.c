@@ -68,6 +68,12 @@ void Motor_InitSimple(void){
 // initialize P1.6 and P1.7 and make them outputs
 
   // write this as part of Lab 12
+    P1->OUT |= 0xC0;
+    P2->OUT &= ~0xC0;
+    P3->OUT &= ~0xC0;
+    P1->DIR |= 0xC0;
+    P2->DIR |= 0xC0;
+    P3->DIR |= 0xC0;
 
 }
 
