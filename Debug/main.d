@@ -19,6 +19,11 @@ main.obj: C:/ti/ccs1110/ccs/ccs_base/arm/include/CMSIS/core_cm4.h
 main.obj: C:/ti/ccs1110/ccs/ccs_base/arm/include/CMSIS/cmsis_compiler.h
 main.obj: C:/ti/ccs1110/ccs/ccs_base/arm/include/CMSIS/cmsis_ccs.h
 main.obj: C:/ti/ccs1110/ccs/ccs_base/arm/include/system_msp432p401r.h
+main.obj: ../inc/bump.h
+main.obj: ../inc/Clock.h
+main.obj: ../inc/SysTick.h
+main.obj: ../inc/LaunchPad.h
+main.obj: ../inc/MotorSimple.h
 
 ../main.c:
 
@@ -57,4 +62,14 @@ C:/ti/ccs1110/ccs/ccs_base/arm/include/CMSIS/cmsis_compiler.h:
 C:/ti/ccs1110/ccs/ccs_base/arm/include/CMSIS/cmsis_ccs.h:
 
 C:/ti/ccs1110/ccs/ccs_base/arm/include/system_msp432p401r.h:
+
+../inc/bump.h:
+
+../inc/Clock.h:
+
+../inc/SysTick.h:
+
+../inc/LaunchPad.h:
+
+../inc/MotorSimple.h:
 
