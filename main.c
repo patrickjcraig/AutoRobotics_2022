@@ -15,5 +15,20 @@ void main(void)
     Clock_Init48MHz();
     LaunchPad_Init(); // built-in switches and LEDs
     Bump_Init(); // bump switches
+    SysTick_Init();
+    Motor_InitSimple();
+
+
+    while(1){
+        P1->OUT &= ~0xC0;
+        P2->OUT |= 0xC0;   // on
+        P3->OUT |= 0xC0;   // not sleep
+        SysTick_Wait10ms(100);
+
+        P1->OUT &= ~0xC0;
+        P2->OUT &= ~0xC0;   // off
+        P3->OUT &= ~0xC0;   // low current sleep mode
+        SysTick_Wait10ms(100);
+    }
     return;
 }
