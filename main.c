@@ -19,16 +19,18 @@ void main(void)
     Motor_InitSimple();
 
 
-    while(1){
-        P1->OUT &= ~0xC0;
-        P2->OUT |= 0xC0;   // on
-        P3->OUT |= 0xC0;   // not sleep
-        SysTick_Wait10ms(100);
+//    for (int i = 0; i < 2; i++){
+//        P1->OUT &= ~0xC0;
+//        P2->OUT |= 0xC0;   // on
+//        P3->OUT |= 0xC0;   // not sleep
+//        SysTick_Wait10ms(100);
+//
+//        P1->OUT &= ~0xC0;
+//        P2->OUT &= ~0xC0;   // off
+//        P3->OUT &= ~0xC0;   // low current sleep mode
+//        SysTick_Wait10ms(100);
+//    }
 
-        P1->OUT &= ~0xC0;
-        P2->OUT &= ~0xC0;   // off
-        P3->OUT &= ~0xC0;   // low current sleep mode
-        SysTick_Wait10ms(100);
-    }
+    Motor_ForwardSimple(9900, 500);
     return;
 }

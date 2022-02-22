@@ -90,6 +90,18 @@ void Motor_ForwardSimple(uint16_t duty, uint32_t time){
 // Stop the motors and return if any bumper switch is active
 // Returns after time*10ms or if a bumper switch is hit
 
+    for(int i = 0; i < time * 48; i++){
+        P1->OUT &= ~0xC0;
+        P2->OUT |= 0xC0;   // on
+        P3->OUT |= 0xC0;   // not sleep
+        SysTick_Wait(duty);
+
+        P1->OUT &= ~0xC0;
+        P2->OUT &= ~0xC0;   // off
+        P3->OUT &= ~0xC0;   // low current sleep mode
+        SysTick_Wait(10000-duty);
+    }
+
   // write this as part of Lab 12
 }
 void Motor_BackwardSimple(uint16_t duty, uint32_t time){
