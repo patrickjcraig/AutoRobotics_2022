@@ -58,6 +58,7 @@ policies, either expressed or implied, of the FreeBSD Project.
 // pins 7,6,5,3,2,0
 void Bump_Init(void){
     // write this as part of Lab 10
+    P4->DIR &= ~0xED;
   
 }
 // Read current state of 6 switches
