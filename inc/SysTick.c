@@ -89,3 +89,7 @@ void SysTick_Wait10ms(uint32_t delay){
     SysTick_Wait(480000);  // wait 10ms (assumes 48 MHz clock)
   }
 }
+//48M/(1/sec) = x
+//1 sec --> 48 M
+//3 sec --> 144M
+//5 sec --> 240M
