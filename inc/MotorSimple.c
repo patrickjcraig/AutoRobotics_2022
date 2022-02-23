@@ -89,6 +89,8 @@ void Motor_ForwardSimple(uint16_t duty, uint32_t time){
 // Runs for time duration (units=10ms), and then stops
 // Stop the motors and return if any bumper switch is active
 // Returns after time*10ms or if a bumper switch is hit
+    if(duty < 550 || duty > 10000)
+        return;
 
     P1->OUT &= ~0xC0; // Forward Direction
 
@@ -99,11 +101,11 @@ void Motor_ForwardSimple(uint16_t duty, uint32_t time){
 
         P2->OUT &= ~0x80;   // off
         P3->OUT &= ~0x80;   // low current sleep mode
-        SysTick_Wait(500);
+        SysTick_Wait(550);
 
         P2->OUT &= ~0x40;   // off
         P3->OUT &= ~0x40;   // low current sleep mode
-        SysTick_Wait(9500-duty);
+        SysTick_Wait(9450-duty);
     }
 }
 void Motor_BackwardSimple(uint16_t duty, uint32_t time){
@@ -111,6 +113,8 @@ void Motor_BackwardSimple(uint16_t duty, uint32_t time){
 // Runs for time duration (units=10ms), and then stops
 // Runs even if any bumper switch is active
 // Returns after time*10ms
+    if(duty < 550 || duty > 10000)
+        return;
 
     P1->OUT |= 0xC0; // Reverse direction
 
@@ -119,9 +123,13 @@ void Motor_BackwardSimple(uint16_t duty, uint32_t time){
         P3->OUT |= 0xC0;   // not sleep
         SysTick_Wait(duty);
 
-        P2->OUT &= ~0xC0;   // off
-        P3->OUT &= ~0xC0;   // low current sleep mode
-        SysTick_Wait(10000-duty);
+        P2->OUT &= ~0x80;   // off
+        P3->OUT &= ~0x80;   // low current sleep mode
+        SysTick_Wait(550);
+
+        P2->OUT &= ~0x40;   // off
+        P3->OUT &= ~0x40;   // low current sleep mode
+        SysTick_Wait(9450-duty);
     }
 }
 void Motor_LeftSimple(uint16_t duty, uint32_t time){
@@ -130,6 +138,8 @@ void Motor_LeftSimple(uint16_t duty, uint32_t time){
 // Runs for time duration (units=10ms), and then stops
 // Stop the motor and return if any bumper switch is active
 // Returns after time*10ms or if a bumper switch is hit
+    if(duty < 550 || duty > 10000)
+        return;
 
 }
 void Motor_RightSimple(uint16_t duty, uint32_t time){
