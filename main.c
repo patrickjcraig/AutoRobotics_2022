@@ -36,7 +36,23 @@ void main(void)
 
 //    Motor_ForwardSimple(3500, 20); // 9900 is the PWM
 //    Motor_ForwardSimple(7500, 280); // 9900 is the PWM
-    Motor_LeftTurn(7500,46); // 9900 is the PWM
+    Motor_ForwardSimple(7500, 280);
+    Motor_LeftTurn(7500,23);
+    Motor_ForwardSimple(7500, 280);
+    Motor_RightTurn(7500,23);
+    Motor_ForwardSimple(7500, 280);
+    Motor_RightTurn(7500,23);
+    Motor_ForwardSimple(7500, 280);
+    Motor_RightTurn(7500,12);
+    Motor_ForwardSimple(7500, 280);
+    Motor_RightTurn(7500,12);
+    Motor_ForwardSimple(7500, 280);
+    Motor_RightTurn(7500,31);
+    Motor_ForwardSimple(7500, 280);
+    Motor_LeftTurn(7500,31);
+    Motor_ForwardSimple(7500, 280);
+    Motor_RightTurn(7500,6);
+    Motor_ForwardSimple(7500, 280);
 
     // Right "arch"
 //    for(int i = 0; i < 50; i++){
