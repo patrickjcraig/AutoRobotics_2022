@@ -34,25 +34,41 @@ void main(void)
     SysTick_Wait10ms(100);
 
 
-//    Motor_ForwardSimple(3500, 20); // 9900 is the PWM
+    Motor_ForwardSimple(3500, 20); // 9900 is the PWM
 //    Motor_ForwardSimple(7500, 280); // 9900 is the PWM
-    Motor_ForwardSimple(7500, 280);
+    Motor_ForwardSimple(7500, 89);
+    SysTick_Wait10ms(20);
     Motor_LeftTurn(7500,23);
-    Motor_ForwardSimple(7500, 280);
+    SysTick_Wait10ms(20);
+    Motor_ForwardSimple(7500, 54);
+    SysTick_Wait10ms(20);
     Motor_RightTurn(7500,23);
-    Motor_ForwardSimple(7500, 280);
+    SysTick_Wait10ms(20);
+    Motor_ForwardSimple(7500, 182);
+    SysTick_Wait10ms(20);
     Motor_RightTurn(7500,23);
-    Motor_ForwardSimple(7500, 280);
+    SysTick_Wait10ms(20);
+    Motor_ForwardSimple(7500, 145);
+    SysTick_Wait10ms(20);
     Motor_RightTurn(7500,12);
-    Motor_ForwardSimple(7500, 280);
+    SysTick_Wait10ms(20);
+    Motor_ForwardSimple(7500, 145);
+    SysTick_Wait10ms(20);
     Motor_RightTurn(7500,12);
-    Motor_ForwardSimple(7500, 280);
+    SysTick_Wait10ms(20);
+    Motor_ForwardSimple(7500, 91);
+    SysTick_Wait10ms(20);
     Motor_RightTurn(7500,31);
-    Motor_ForwardSimple(7500, 280);
+    SysTick_Wait10ms(20);
+    Motor_ForwardSimple(7500, 109);
+    SysTick_Wait10ms(20);
     Motor_LeftTurn(7500,31);
-    Motor_ForwardSimple(7500, 280);
+    SysTick_Wait10ms(20);
+    Motor_ForwardSimple(7500, 62);
+    SysTick_Wait10ms(20);
     Motor_RightTurn(7500,6);
-    Motor_ForwardSimple(7500, 280);
+    SysTick_Wait10ms(20);
+    Motor_ForwardSimple(7500, 127);
 
     // Right "arch"
 //    for(int i = 0; i < 50; i++){
