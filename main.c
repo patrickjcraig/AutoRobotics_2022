@@ -31,6 +31,8 @@ void main(void)
 //        SysTick_Wait10ms(100);
 //    }
 
-    Motor_ForwardSimple(9900, 500);
+    SysTick_Wait10ms(100);
+    Motor_ForwardSimple(7500, 100); // 9900 is the PWM
+    Motor_StopSimple();
     return;
 }

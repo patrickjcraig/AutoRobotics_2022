@@ -90,19 +90,21 @@ void Motor_ForwardSimple(uint16_t duty, uint32_t time){
 // Stop the motors and return if any bumper switch is active
 // Returns after time*10ms or if a bumper switch is hit
 
+    P1->OUT &= ~0xC0; // Forward Direction
+
     for(int i = 0; i < time * 48; i++){
-        P1->OUT &= ~0xC0;
         P2->OUT |= 0xC0;   // on
         P3->OUT |= 0xC0;   // not sleep
         SysTick_Wait(duty);
 
-        P1->OUT &= ~0xC0;
-        P2->OUT &= ~0xC0;   // off
-        P3->OUT &= ~0xC0;   // low current sleep mode
-        SysTick_Wait(10000-duty);
-    }
+        P2->OUT &= ~0x80;   // off
+        P3->OUT &= ~0x80;   // low current sleep mode
+        SysTick_Wait(500);
 
-  // write this as part of Lab 12
+        P2->OUT &= ~0x40;   // off
+        P3->OUT &= ~0x40;   // low current sleep mode
+        SysTick_Wait(9500-duty);
+    }
 }
 void Motor_BackwardSimple(uint16_t duty, uint32_t time){
 // Drives both motors backward at duty (100 to 9900)
@@ -110,7 +112,17 @@ void Motor_BackwardSimple(uint16_t duty, uint32_t time){
 // Runs even if any bumper switch is active
 // Returns after time*10ms
 
-  // write this as part of Lab 12
+    P1->OUT |= 0xC0; // Reverse direction
+
+    for(int i = 0; i < time * 48; i++){
+        P2->OUT |= 0xC0;   // on
+        P3->OUT |= 0xC0;   // not sleep
+        SysTick_Wait(duty);
+
+        P2->OUT &= ~0xC0;   // off
+        P3->OUT &= ~0xC0;   // low current sleep mode
+        SysTick_Wait(10000-duty);
+    }
 }
 void Motor_LeftSimple(uint16_t duty, uint32_t time){
 // Drives just the left motor forward at duty (100 to 9900)
@@ -119,7 +131,6 @@ void Motor_LeftSimple(uint16_t duty, uint32_t time){
 // Stop the motor and return if any bumper switch is active
 // Returns after time*10ms or if a bumper switch is hit
 
-  // write this as part of Lab 12
 }
 void Motor_RightSimple(uint16_t duty, uint32_t time){
 // Drives just the right motor forward at duty (100 to 9900)
