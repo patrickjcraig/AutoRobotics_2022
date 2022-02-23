@@ -32,7 +32,18 @@ void main(void)
 //    }
 
     SysTick_Wait10ms(100);
-    Motor_BackwardSimple(7500, 100); // 9900 is the PWM
+
+
+//    Motor_ForwardSimple(3500, 20); // 9900 is the PWM
+//    Motor_ForwardSimple(7500, 280); // 9900 is the PWM
+    Motor_LeftTurn(7500,46); // 9900 is the PWM
+
+    // Right "arch"
+//    for(int i = 0; i < 50; i++){
+//        Motor_ForwardSimple(7500, 1); // 9900 is the PWM
+//        Motor_RightTurn(7500,1); // 9900 is the PWM
+//        Motor_ForwardSimple(7500, 100); // 9900 is the PWM
+//    }
     Motor_StopSimple();
     return;
 }
